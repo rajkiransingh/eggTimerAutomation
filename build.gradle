@@ -5,15 +5,32 @@ plugins {
 group 'org.egg.timer'
 version '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 repositories {
     mavenCentral()
 }
 
+ext {
+    cucumberVersion = '6.10.4'
+    junitVersion = '4.13.2'
+    log4jVersion = '2.14.1'
+    seleniumVersion = '3.141.59'
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    implementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    implementation "org.apache.logging.log4j:log4j-api:${log4jVersion}"
+    implementation "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+    testImplementation "junit:junit:${junitVersion}"
 }
 
 test {
-    useJUnitPlatform()
+    include '**/*TestRunner*'
+    systemProperty 'browser', System.properties.getProperty("browser")
 }

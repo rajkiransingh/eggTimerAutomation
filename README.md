@@ -1,15 +1,6 @@
 # Egg Timer Automation Framework
 > Selenium and cucumber based project using Java as a programming language.
 
-## Table of Contents
-* [General info] (#general-info)
-* [Technologies] (#technologies)
-* [Setup] (#setup)
-* [Execution] (#execution)
-* [Highlights] (#highlights)
-* [Improvements] (#improvements)
-* [Bugs] (#bugs)
-
 ## General info
 - 'src/test/java/pages/' - Place to keep all our pages together
 - 'src/test/java/setup/' - Place to keep initial setup
@@ -20,8 +11,11 @@
 - 'src/test/resources/Features/' - Place to keep all the feature files
 
 ## Technologies
-
-## Setup
+- Language: Java
+- Framework: Selenium, Cucumber
+- Build Tool: Gradle
+- Test Framework: JUNIT4
+- Logging: log4j
 
 ## Execution
 
