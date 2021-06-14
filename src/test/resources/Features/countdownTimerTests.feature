@@ -9,20 +9,20 @@ Feature: Feature to provide a timer which will count down from the given time
 
     Examples:
     | time     |
-    | 9        |
-#    | 25       |
-#    | 59       |
-#    | 10000000 |
-#
-#    Scenario Outline: Providing incorrect time in seconds and expecting errors
-#      Given I am on the EggTimer Homepage
-#      When I enter invalid <time> in seconds to the timer
-#      And I click on start button
-#      Then I should see timer should not start
-#
-#      Examples:
-#      | time |
-#      | ""   |
-#      | -1   |
-#      | $1   |
-#      | ABCD |
+    | 10       |
+    | 25       |
+    | 59       |
+    | 10000000 |
+
+    Scenario Outline: Providing incorrect time in seconds and expecting errors
+      Given I am on the EggTimer Homepage
+      When I enter invalid <time> in seconds to the timer
+      And I click on start button
+      Then I should see timer should not start
+
+      Examples:
+      | time |
+      | ""   |
+      | -1   |
+      | $1   |
+      | ABCD |
