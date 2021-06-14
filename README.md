@@ -44,8 +44,8 @@ Note: For running in Firefox, just use the browser property -Dbrowser=ff
 - There are few bugs I have noticed and 2 of them are validated in the cucumber tests as well.
     - If I provide a large number in the field, timer will not start
     - for negative number, timer starts with some random time
-    - Font of the timer changes in middle of the run
-    - There are no error message, I have to use other assertions to validate that timer is not displayed
+    - Font of the timer changes in middle of the run (Not automated)
+    - There are no error messages when incorrect input is provided, I have to use elements in the page to validate the errors which is not accurate.
     
 
 
