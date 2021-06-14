@@ -14,7 +14,7 @@ pipeline {
 
         stage('test') {
             steps {
-                sh "gradlew test -Dbrowser=ch"
+                sh "gradle test -Dbrowser=ch"
             }
         }
 }
