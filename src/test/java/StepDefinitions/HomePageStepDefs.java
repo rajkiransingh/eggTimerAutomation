@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.TimerPage;
 import setup.TestBase;
-import utils.ElapsedTimeFinder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +22,6 @@ public class HomePageStepDefs {
     HomePage homepage;
     TimerPage timerPage;
     TestBase testBase;
-    ElapsedTimeFinder elapsedTimeFinder;
-    Long getCurrentTime;
-    Long getLatestTime;
-
-
 
     @Before
     public void startup() {
@@ -65,36 +59,33 @@ public class HomePageStepDefs {
     @When("I click on start button")
     public void i_click_on_start_button() {
         homepage.clickStartButton();
-        getCurrentTime = System.currentTimeMillis();
     }
 
     @Then("I should see that timer has started")
     public void i_should_see_that_timer_has_started() {
         timerPage = new TimerPage(driver);
-        assert timerPage.isDisplayed();
-        getLatestTime = System.currentTimeMillis();
+        assert timerPage.isDisplayed() : "Timer page does not load";
     }
+
     @Then("the seconds count should go down by one second each time")
     public void the_seconds_count_should_go_down_by_one_second_each_time() throws InterruptedException {
-        while(EXPECTED_TIME>0) {
-            String[] actualTime = timerPage.getTimeInSec().split(" ");
-            elapsedTimeFinder = new ElapsedTimeFinder();
-            EXPECTED_TIME = elapsedTimeFinder.getLoadDelay(getCurrentTime,getLatestTime);
-
-            logger.info("This is the expected time: {}", EXPECTED_TIME);
-            logger.info("This is the actual time: {}", actualTime[0]);
-
-            assert EXPECTED_TIME == Integer.parseInt(actualTime[INDEX_ZERO]);
+        while(EXPECTED_TIME>=0) {
+            String[] timeSplit = timerPage.getTimeInSec().split(" ");
+            Integer actualTime = Integer.parseInt(timeSplit[INDEX_ZERO]);
+            if(actualTime < EXPECTED_TIME) {
+                EXPECTED_TIME = EXPECTED_TIME - 1;
+            }
+            assert EXPECTED_TIME.equals(actualTime) : "Expected time: " + EXPECTED_TIME + " do not match with the actual time: " + actualTime;
             EXPECTED_TIME = EXPECTED_TIME - 1;
             TimeUnit.MILLISECONDS.sleep(TIME_DELAY);
         }
-        assert driver.switchTo().alert().getText().equals("Time Expired!");
+        assert driver.switchTo().alert().getText().equals("Time Expired!") : "Alert message do not match";
         driver.switchTo().alert().accept();
     }
 
     @Then("I should see timer should not start")
     public void timer_should_not_start() {
         timerPage = new TimerPage(driver);
-        assert homepage.isDisplayed();
+        assert homepage.isDisplayed() : "Home page element does not show up in the page";
     }
 }

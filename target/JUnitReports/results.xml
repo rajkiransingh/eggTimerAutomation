@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="7" time="138.766">
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Validate that the countdown timer works with the correct time duration" time="28.223">
+<system-out><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I provide 10 seconds to the timer......................................passed
+And I click on start button.................................................passed
+Then I should see that timer has started....................................passed
+And the seconds count should go down by one second each time................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Validate that the countdown timer works with the correct time duration 2" time="37.239">
+<system-out><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I provide 25 seconds to the timer......................................passed
+And I click on start button.................................................passed
+Then I should see that timer has started....................................passed
+And the seconds count should go down by one second each time................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Validate that the countdown timer works with the correct time duration 3" time="13.903">
+<failure message="Timer page does not load" type="java.lang.AssertionError"><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I provide 10000000 seconds to the timer................................passed
+And I click on start button.................................................passed
+Then I should see that timer has started....................................failed
+And the seconds count should go down by one second each time................skipped
+
+StackTrace:
+java.lang.AssertionError: Timer page does not load
+	at StepDefinitions.HomePageStepDefs.i_should_see_that_timer_has_started(HomePageStepDefs.java:67)
+	at ✽.I should see that timer has started(file:///C:/Users/Rajki/IdeaProjects/eggTimerAutomation/src/test/resources/Features/countdownTimerTests.feature:7)
+]]></failure>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Providing incorrect time in seconds and expecting errors" time="12.044">
+<system-out><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I enter invalid "" in seconds to the timer.............................passed
+And I click on start button.................................................passed
+Then I should see timer should not start....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Providing incorrect time in seconds and expecting errors 2" time="20.949">
+<failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#EggTimer\-start\-time\-input\-text&quot;}&#10;  (Session info: chrome=91.0.4472.101)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-44E7U48', ip: '192.168.1.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_291'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.101, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Rajki\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50662}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: ff42eba25185520c7b13d40a4ed4ff5e&#10;*** Element info: {Using=id, value=EggTimer-start-time-input-text}" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I enter invalid -1 in seconds to the timer.............................passed
+And I click on start button.................................................passed
+Then I should see timer should not start....................................failed
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#EggTimer\-start\-time\-input\-text"}
+  (Session info: chrome=91.0.4472.101)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-44E7U48', ip: '192.168.1.198', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_291'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.101, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Rajki\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50662}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ff42eba25185520c7b13d40a4ed4ff5e
+*** Element info: {Using=id, value=EggTimer-start-time-input-text}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy36.isDisplayed(Unknown Source)
+	at pages.HomePage.isDisplayed(HomePage.java:24)
+	at StepDefinitions.HomePageStepDefs.timer_should_not_start(HomePageStepDefs.java:89)
+	at ✽.I should see timer should not start(file:///C:/Users/Rajki/IdeaProjects/eggTimerAutomation/src/test/resources/Features/countdownTimerTests.feature:20)
+]]></failure>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Providing incorrect time in seconds and expecting errors 3" time="13.085">
+<system-out><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I enter invalid $1 in seconds to the timer.............................passed
+And I click on start button.................................................passed
+Then I should see timer should not start....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to provide a timer which will count down from the given time" name="Providing incorrect time in seconds and expecting errors 4" time="12.256">
+<system-out><![CDATA[Given I am on the EggTimer Homepage.........................................passed
+When I enter invalid ABCD in seconds to the timer...........................passed
+And I click on start button.................................................passed
+Then I should see timer should not start....................................passed
+]]></system-out>
+</testcase>
+</testsuite>

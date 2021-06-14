@@ -11,7 +11,6 @@ Feature: Feature to provide a timer which will count down from the given time
     | time     |
     | 10       |
     | 25       |
-    | 59       |
     | 10000000 |
 
     Scenario Outline: Providing incorrect time in seconds and expecting errors
