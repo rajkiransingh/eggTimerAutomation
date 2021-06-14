@@ -16,14 +16,14 @@ pipeline {
         stage('Clean Project') {
             steps {
                 script {
-                    sh './gradlew clean --no-daemon' //run a gradle task
+                    sh './gradlew clean --no-daemon'
                 }
             }
         }
         stage('UI Test Run') {
             steps {
                     script {
-                        sh './gradlew test -Dbrowser=ch --no-daemon'
+                        sh './gradlew test -Dbrowser=ch'
                     }
             }
         }
